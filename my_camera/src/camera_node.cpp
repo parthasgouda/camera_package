@@ -22,7 +22,7 @@ std_msgs::Header h;
 h.seq=c;
 h.stamp=ros::Time::now();
 
-cv_bridge::CvImage br_img=cv_bridge::CvImage(h, sensor_msgs::image_encodings::RGB8,cv_img);
+cv_bridge::CvImage br_img=cv_bridge::CvImage(h, sensor_msgs::image_encodings::BGR8,cv_img);
 br_img.toImageMsg(img);
 camera.publish(img);
 
