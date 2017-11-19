@@ -1,0 +1,19 @@
+<launch>
+	<node ns="mine" pkg="my_camera" type="camera_node" name="partha_camera1">
+		<param name="device_name" value="/dev/video1"/>
+	</node>
+	
+	<node ns="yours" pkg="my_camera" type="camera_node" name="partha_camera2">
+		<param name="device_name" value="/dev/video2"/>
+		
+	</node>
+
+	<node ns="mine" name="first_camera_video" pkg="image_view" type="image_view">
+	<remap from="image" to="/mine/partha_camera1/partha_topic"/>
+	</node>
+	
+	<node ns="yours" name="first_camera_video" pkg="image_view" type="image_view">
+	<remap from="image" to="/mine/partha_camera1/partha_topic"/>
+	</node>
+
+</launch>
